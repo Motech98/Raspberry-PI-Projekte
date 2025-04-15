@@ -26,7 +26,7 @@ In diesem Projekt habe ich **Pi-hole** auf einem Raspberry Pi installiert, um We
 
 Die detaillierte Anleitung zur Installation von Pi-hole auf dem Raspberry Pi findest du hier:
 
-- [Pi-hole Setup Anleitung](setup/pi-hole_setup.md)
+- [Pi-hole Setup Anleitung](https://github.com/pi-hole/pi-hole)
 
 ## 💡 Vorteile
 
@@ -40,13 +40,7 @@ Wenn du einen **3D-Drucker** besitzt, kannst du ein cooles, minimalistisches **A
 
 Hier ist ein Beispiel für ein Apple-Design-Gehäuse, das du für deinen Raspberry Pi drucken kannst (du kannst auch eigene Designs erstellen!):
 
-- [Beispiel Gehäuse - Apple Style](https://www.thingiverse.com/search?q=apple%20raspberry%20pi&type=things&sort=relevant)
-
-## 📸 Screenshots
-
-Hier ein Blick auf das Pi-hole Dashboard:
-
-![Pi-hole Dashboard](./screenshots/pihole_dashboard.png)
+- [Beispiel Gehäuse - Apple Style](https://www.printables.com/model/508997-appleberry-g5-raspberry-pi-3b-4b-in-apple-power-ma)
 
 ## 🤝 Mitwirken
 
