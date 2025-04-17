@@ -28,4 +28,3 @@ Falls du Ideen hast oder Verbesserungen vorschlagen möchtest, freue ich mich, v
 ## 📧 Kontakt
 
 - **GitHub**: [Motech98](https://github.com/Motech98)
-- **E-Mail**: [deine-email@example.com](mailto:deine-email@example.com)
