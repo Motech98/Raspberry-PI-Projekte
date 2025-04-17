@@ -49,4 +49,4 @@ Hast du Ideen zur Verbesserung? Pull Requests sind herzlich willkommen! Du kanns
 ## 📧 Kontakt
 
 - **GitHub**: [Motech98](https://github.com/Motech98)
-- **E-Mail**: [deine-email@example.com](mailto:deine-email@example.com)
+
