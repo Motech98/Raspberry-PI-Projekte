@@ -1,0 +1,81 @@
+ 🌐 Mein Heim-Server-Projekt – Für Alle erklärt
+
+**Lesezeit: ~5 Minuten**  
+Ich habe meinen Raspberry Pi in eine **sichere**, **stromsparende** Private-Cloud verwandelt. Von überall greife ich mit Handy oder PC auf meine Dateien zu.
+
+---
+
+## 🔐 1. Sicherer Fernzugang (VPN mit WireGuard)
+
+> **Was ist VPN?**  
+> Ein VPN (Virtuelles Privates Netzwerk) verschlüsselt deinen Datenverkehr und macht dein Gerät so, als wäre es direkt zu Hause im Heimnetz.
+
+**So habe ich’s gemacht:**  
+1. WireGuard auf dem Pi installiert  
+2. Schlüsselpaare (öffentlich + privat) erzeugt  
+3. MyFRITZ!-DynDNS in der Fritzbox eingerichtet → feste Adresse  
+4. VPN-Port (UDP) in der Fritzbox freigegeben  
+5. QR-Code aus der Fritzbox in die WireGuard-App gescannt  
+6. VPN-Tunnel aktiviert → **sichere Verbindung** 🔒
+
+---
+
+## ☁️ 2. Eigene “Cloud” zu Hause (NAS mit Samba)
+
+> **Was ist NAS?**  
+> NAS (Network Attached Storage) ist eine Festplatte im Heimnetz, auf die alle Geräte zugreifen können.
+
+**Einrichtung:**  
+- USB-Festplatte (931 GB) an den Pi angeschlossen  
+- Automatisches Mounten beim Start (`/etc/fstab`)  
+- Samba installiert → Pi als Windows-Netzlaufwerk  
+- Freigabe-Ordner **`nasplatte`** angelegt  
+- Schreibrechte gesetzt → **Reibungsloser Zugriff**
+
+**Zugriff:**  
+- 🏠 **Zuhause:**  
+- 🌍 **Unterwegs:** VPN einschalten → gleiche Adresse 
+- 📱 **Handy:** X-plore / Solid Explorer → LAN/SMB → `192...` 
+
+--- 
+
+## 🔄 3. Automatischer Betrieb & Updates 
+
+- **Unattended-Upgrades:** Sicherheits-Updates automatisch 
+- **Backup-Skript** (rsync) sichert täglich um **02:00 Uhr** auf meinen PC 
+- **Backup-PC** (immer an) mit 
+- **Cron-Job** & **Systemd** sorgen für automatische Ausführung ```bash # Cron-Eintrag (root): 0 2 * * * /usr/local/bin/backup-docs.sh >> /var/log/backup-docs.log 2>&1 ``` 
+
+---
+
+## 🔋 4. Stromsparen & Stabilität 
+- **hd-idle:** Platte nach 5 Min Leerlauf in Stand-by 
+- **CPU-Governor ondemand:** Prozessor nur bei Bedarf hochgetaktet 
+- **PWM-Lüftersteuerung:** Lüfter dreht nur so schnell, wie nötig (ab 65 °C) 
+
+--- 
+
+## 🛡️ 5. Sicherheit & Firewall 
+- **UFW:** Erlaubt nur SSH (Port 22), WireGuard (UDP 51820), Samba (TCP 445 im LAN) 
+- **Fail2Ban:** Blockiert wiederholte Fehl-Logins 
+- **VPN-Zwang:** Kein offener SSH-Port im Internet – erst VPN aktivieren 
+
+
+--- 
+
+## 💾 6. Mein PC als Backup-Station 
+- **IP:** `192...` (stets online) 
+- **Skript:** `/usr/local/bin/backup-docs.sh` 
+- **Automatisch aktiviert** via Cron & Systemd beim Pi-Start 
+
+--- 
+
+## 🎉 Fazit Mit wenig Aufwand habe ich aus meinem Raspberry Pi… 
+
+- Einen **VPN-Server** für sicheren Fernzugang 
+- Eine **Private-Cloud (NAS)** fürs Heimnetz
+- **Automatische Updates** & **tägliche Backups**
+- **Stromspar-Modi** für Platte, CPU & Lüfter 
+- Eine **robuste Firewall** …gemacht. Familienfotos und wichtige Dokumente liegen jetzt sicher bei mir zu Hause – und ich komme von überall dran! 😊 
+
+
